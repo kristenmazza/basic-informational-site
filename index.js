@@ -1,28 +1,12 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
+const app = express();
+const PORT = 3001;
 const path = require('path');
 
-const server = http.createServer((req, res) => {
-  let filePath = path.join(__dirname, req.url === '/' ? 'index.html' : req.url);
+app.use(express.static(path.join(__dirname, 'public')));
 
-  fs.readFile(filePath, (err, content) => {
-    if (err) {
-      if (err.code === 'ENOENT') {
-        fs.readFile(path.join(__dirname, '404.html'), (err, content) => {
-          res.writeHead(200, { 'Content-Type': 'text/html' });
-          res.end(content, 'utf8');
-        });
-      } else {
-        res.writeHead(500);
-        res.end(`Server Error: ${err.code}`);
-      }
-    } else {
-      res.writeHead(200, { 'Content-Type': 'text/html' });
-      res.end(content, 'utf8');
-    }
-  });
+app.use(function (req, res, next) {
+  res.status(404).sendFile('404.html', { root: 'public' });
 });
 
-const port = 3001;
-
-server.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}`));

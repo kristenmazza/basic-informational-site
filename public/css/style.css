@@ -1,0 +1,8 @@
+body {
+  background: #363636;
+  color: rgb(250, 250, 250);
+}
+
+li > a {
+  color: rgb(250, 250, 250);
+}

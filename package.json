@@ -1,0 +1,22 @@
+{
+  "name": "basic-informational-site",
+  "version": "1.0.0",
+  "description": "Introductory practice exercise to learn NodeJS, created while following [The Odin Project](https://www.theodinproject.com/lessons/nodejs-basic-informational-site) curriculum.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristenmazza/basic-informational-site.git"
+  },
+  "author": "Kristen Mazza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristenmazza/basic-informational-site/issues"
+  },
+  "homepage": "https://github.com/kristenmazza/basic-informational-site#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
